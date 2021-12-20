@@ -2,13 +2,29 @@
   "name": "zara_technical_test",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Yoan Cespedes Williams",
+    "email": "yoan.cesp@gmail.com"
+  },
+  "repository": {
+    "url": "https://github.com/yoan-cesp/zara_technical_test.git"
+  },
   "dependencies": {
+    "@material-ui/core": "4.11.4",
+    "@material-ui/icons": "4.11.2",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "cross-fetch": "^3.1.4",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react-dom": "^17.0.2","react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.0",
+    "react-test-renderer": "^17.0.2",
+    "redux": "4.0.1",
+    "redux-immutable-state-invariant": "^2.1.0",
+    "redux-mock-store": "^1.5.4",
+    "redux-thunk": "2.3.0",
     "web-vitals": "^2.1.2"
   },
   "scripts": {
@@ -34,5 +50,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
+    "enzyme": "^3.11.0"
   }
 }
