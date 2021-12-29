@@ -17,7 +17,7 @@ const processSinglePodcastAction = (payload, podcastId) => {
  * Get podcast Episodes from feed url info
  */
 export const getFeedData = (feedUrl) => {
-  return API.get(`${ CORS_PROXY_URL }${ feedUrl }`).then(({ data }) => {
+  return API.get(`${ feedUrl }`).then(({ data }) => {
     const parserInstance = new xml2js.Parser();
 
     return new Promise((resolve) => {
@@ -35,7 +35,7 @@ export const getPodcast = (podcastId) => {
   return (dispatch) => {
     dispatch(processPageLoading(true));
 
-    API.get(`${ CORS_PROXY_URL }?${ ITUNES_URL }lookup?id=${ podcastId }`)
+    API.get(`${ ITUNES_URL }lookup?id=${ podcastId }`)
     .then(({ data }) => {
       const result = data.results[0];
       const podcastFeedUrl = result.feedUrl;

@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import configureStore from './state/store/store';
 import { BrowserRouter as Router } from 'react-router-dom';
 import appTheme from './theme/theme';
+import './styles.css';
 import AppRoutes from './routes';
 
 ReactDOM.render(

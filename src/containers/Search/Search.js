@@ -24,32 +24,24 @@ const Search = (props) => {
     filterPodcasts(event.target.value);
   };
 
-  const onKeyEnter = (event) => {
-    // enter key pressed
-    if (event.keyCode === 13) {
-      filterPodcasts(criteria);
-    }
-  };
-
   return (
-    <main>
-      <Container className={ classes.searchContainer } maxWidth='md'>
-        <Grid container spacing={ 4 }>
-          <Grid item xs={ 12 }>
-            <form className={ classes.searchInput } noValidate autoComplete='off'>
-              <div className={ classes.podcastAmongText }>{ podcastsFilteredList.length }</div>
-              <TextField
-                value={ criteria }
-                size={ 'small' }
-                id='search-input'
-                label='Filter podcasts...'
-                onChange={ (e) => onSearchInputChange(e) }
-                variant='outlined' />
-            </form>
-          </Grid>
+    <Container className={ classes.searchContainer } maxWidth='md'>
+      <Grid container spacing={ 6 }>
+        <Grid item xs={ 12 }>
+          <form className={ classes.searchInput } noValidate autoComplete='off'>
+            <div className={ classes.podcastAmongText }>{ podcastsFilteredList.length }</div>
+            <TextField
+              className={ classes.searchTextField }
+              value={ criteria }
+              size={ 'small' }
+              id='search-input'
+              label='Filter podcasts...'
+              onChange={ (e) => onSearchInputChange(e) }
+              variant='outlined' />
+          </form>
         </Grid>
-      </Container>
-    </main>
+      </Grid>
+    </Container>
   );
 };
 

@@ -1,5 +1,5 @@
 export const ITUNES_URL = 'https://itunes.apple.com/';
-export const CORS_PROXY_URL = 'https://cors.io/';
+export const CORS_PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
 
 // Browser local storage
 export const STORE_KEY = 'appState';

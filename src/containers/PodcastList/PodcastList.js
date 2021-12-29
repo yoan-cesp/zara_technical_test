@@ -9,9 +9,8 @@ const PodcastList = (props) => {
   const { podcastsFilteredList } = props;
 
   return (
-    <main>
       <Container className={ classes.cardGrid } maxWidth='md'>
-        <Grid container spacing={ 4 }>
+        <Grid container spacing={ 2 }>
           { podcastsFilteredList.map(item => (
             <Grid item key={ `gridContainer-${item.id}`} xs={ 12 } sm={ 6 } md={ 3 }>
               <PodcastItemList key={ item.id } item={ item } />
@@ -20,7 +19,6 @@ const PodcastList = (props) => {
           }
         </Grid>
       </Container>
-    </main>
 );
 };
 

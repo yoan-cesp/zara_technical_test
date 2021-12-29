@@ -26,7 +26,7 @@ export const getAllPodcasts = () => {
     // loading page
     dispatch(processPageLoading(true));
 
-    API.get('us/rss/toppodcasts/limit=100/genre=1310/json')
+    API.get(`${ ITUNES_URL }us/rss/toppodcasts/limit=100/genre=1310/json`)
     .then(({ data }) => {
       // transforming results
       let podcastsList = [];
