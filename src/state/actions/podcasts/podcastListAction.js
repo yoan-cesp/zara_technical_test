@@ -1,4 +1,4 @@
-import API from '../../../constants/axiosBaseInstance';
+import axios from 'axios';
 import { ITUNES_URL } from '../../../constants/constants';
 import * as ACTION_TYPES from '../../../constants/actionTypes';
 import { formatPodcastInfo } from '../../../components/common/utils';
@@ -26,7 +26,7 @@ export const getAllPodcasts = () => {
     // loading page
     dispatch(processPageLoading(true));
 
-    API.get(`${ ITUNES_URL }us/rss/toppodcasts/limit=100/genre=1310/json`)
+    axios.get(`${ ITUNES_URL }us/rss/toppodcasts/limit=100/genre=1310/json`)
     .then(({ data }) => {
       // transforming results
       let podcastsList = [];
@@ -35,8 +35,6 @@ export const getAllPodcasts = () => {
       });
 
       dispatch(getAllPodcastsAction(podcastsList));
-
-      dispatch(processPageLoading(false));
 
     })
     .catch((error) => {
@@ -48,6 +46,8 @@ export const getAllPodcasts = () => {
           errorMsg: error,
         },
       ));
+    }).finally(() => {
+      dispatch(processPageLoading(false));
     });
   };
 };

@@ -1,4 +1,4 @@
-import API from '../../../constants/axiosBaseInstance';
+import axios from 'axios';
 import * as ACTION_TYPES from '../../../constants/actionTypes';
 import xml2js from 'xml2js';
 import { processPageError, processPageLoading } from '../page/pageAction';
@@ -17,12 +17,12 @@ const processSinglePodcastAction = (payload, podcastId) => {
  * Get podcast Episodes from feed url info
  */
 export const getFeedData = (feedUrl) => {
-  return API.get(`${ feedUrl }`).then(({ data }) => {
+  return axios.get(`${ CORS_PROXY_URL }${ feedUrl }`).then(({ data }) => {
     const parserInstance = new xml2js.Parser();
 
-    return new Promise((resolve) => {
+    return new Promise((resolved) => {
       parserInstance.parseString(data, (err, jsonData) => {
-        resolve(jsonData.rss.channel[0]);
+        resolved(jsonData.rss.channel[0]);
       });
     });
   });
@@ -35,7 +35,7 @@ export const getPodcast = (podcastId) => {
   return (dispatch) => {
     dispatch(processPageLoading(true));
 
-    API.get(`${ ITUNES_URL }lookup?id=${ podcastId }`)
+    axios.get(`${ CORS_PROXY_URL }${ ITUNES_URL }lookup?id=${ podcastId }`)
     .then(({ data }) => {
       const result = data.results[0];
       const podcastFeedUrl = result.feedUrl;
@@ -47,7 +47,6 @@ export const getPodcast = (podcastId) => {
 
         dispatch(processSinglePodcastAction(parsedResultData, podcastId));
 
-        dispatch(processPageLoading(false));
       });
     })
     .catch((error) => {
@@ -59,6 +58,9 @@ export const getPodcast = (podcastId) => {
           errorMsg: error,
         },
       ));
+    })
+    .finally(() => {
+      dispatch(processPageLoading(false));
     });
   };
 };

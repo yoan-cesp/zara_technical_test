@@ -13,7 +13,7 @@ const AppHeader = (props) => {
         <Grid container spacing={ 4 }>
           <Toolbar variant='dense' className={ classes.toolbar }>
             <Typography variant='h6' color='primary' noWrap>
-              <Link href='/'>
+              <Link className={ classes.podcastItemDetailLinkStyles } href='/'>
                 Podcaster
               </Link>
             </Typography>
