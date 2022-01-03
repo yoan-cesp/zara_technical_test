@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { width } from '@material-ui/system';
+import { display, width } from '@material-ui/system';
 
 export const appStyles = makeStyles((theme) => ({
   home: {
@@ -192,5 +192,16 @@ export const appStyles = makeStyles((theme) => ({
     'p': {
       margin: '10px 0',
     },
+  },
+  podcastItemDetailCardTittleStyle: {
+    borderTop: '1px solid #C5C5C5',
+    borderBottom: '1px solid #C5C5C5',
+    margin: '12px 0 20px 0',
+    padding: '24px 11px',
+    fontSize: '18px',
+    lineHeight: '22px',
+  },
+  podcastItemDetailByTextStyle: {
+    fontStyle: 'italic',
   },
 }));

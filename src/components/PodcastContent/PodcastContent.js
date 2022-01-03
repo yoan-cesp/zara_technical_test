@@ -11,12 +11,12 @@ const PodcastContent = ({ podcastItem }) => {
         <img className={ classes.podcastItemDetailImgStyle } src={ podcastItem.image } alt={ podcastItem.name } />
       </Link>
 
-      <Typography gutterBottom variant='h6' component='h5'>
+      <Typography className={classes.podcastItemDetailCardTittleStyle} gutterBottom variant='h6' component='h5'>
         <Link className={ classes.podcastItemDetailLinkStyles } href={ `/podcast/${ podcastItem.id }` }>
           <Typography className={ classes.podcastItemDetailAlbumNameStyle } gutterBottom variant='h6' component='h1'>
             { podcastItem.name }
           </Typography>
-          <Typography variant='body2' color='textSecondary' component='p'>
+          <Typography className={ classes.podcastItemDetailByTextStyle}variant='body2' color='textSecondary' component='p'>
             { `by ${ podcastItem.author }` }
           </Typography>
         </Link>
